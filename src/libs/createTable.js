@@ -1,29 +1,37 @@
-function buildTableBody(data, columns) {
-    var body = [];
+const _ = require('lodash')
 
-    body.push(columns);
+function buildTableBody(data, obj) {
+	var body = []
 
-    data.forEach(function(row) {
-        var dataRow = [];
+	const columns = getColum(obj)
 
-        columns.forEach(function(column) {
-            dataRow.push(row[column].toString());
-        })
+	body.push(columns)
 
-        body.push(dataRow);
-    });
+	data.forEach(function (row) {
+		var dataRow = []
 
-    return body;
+		columns.forEach(function (column) {
+			dataRow.push(row[column].toString())
+		})
+
+		body.push(dataRow)
+	})
+
+	return body
 }
 
-function table(data, columns) {
-    return {
-        table: {
-            headerRows: 1,
-            body: buildTableBody(data, columns)
-        }
-    };
+function ctable(data, obj) {
+	return {
+		table: {
+			headerRows: 1,
+			body: buildTableBody(data, obj),
+		},
+	}
 }
 
+const getColum = obj => {
+	const objKeys = _.keysIn(obj[0])
+	return objKeys
+}
 
-export {table}
+export { ctable }

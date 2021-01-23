@@ -1,6 +1,5 @@
 import { Button } from '@material-ui/core'
 import { createPDF } from '../libs/createPdf'
-import axios from 'axios'
 
 const ButtonPdf = () => {
 	return (

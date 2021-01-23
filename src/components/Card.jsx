@@ -1,14 +1,12 @@
-import { Fragment, useState, useContext } from 'react'
+import { Fragment, useState } from 'react'
 import {
 	Card,
 	Container,
 	CardActions,
 	CardContent,
-	Grid,
 	Typography,
 	makeStyles,
 } from '@material-ui/core/'
-import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
 	cardGrid: {
